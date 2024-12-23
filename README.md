@@ -38,7 +38,7 @@ src/
 
 ## NPM Scripts
 
-- `start`: Run the app in dev mode
+- `dev`: Run the app in dev mode
 - `package`: Create platform-specific executable
 - `make`: Build platform-specific distributables
 - `test`: Run Jest and Playwright tests
