@@ -1,4 +1,5 @@
 import AboutPage from "@/pages/about";
+import Settings from "@/pages/settings";
 import { createRoute } from "@tanstack/react-router";
 import HomePage from "../pages/home";
 import { RootRoute } from "./__root";
@@ -34,4 +35,10 @@ export const AboutRoute = createRoute({
   component: AboutPage,
 });
 
-export const rootTree = RootRoute.addChildren([HomeRoute, AboutRoute]);
+export const SettingsRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: "/settings",
+  component: Settings,
+});
+
+export const rootTree = RootRoute.addChildren([HomeRoute, AboutRoute, SettingsRoute]);

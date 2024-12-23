@@ -3,13 +3,10 @@ import React from "react";
 
 export default function NavigationMenu() {
   return (
-    <ul className="flex w-full gap-2 border-b p-1 text-sm">
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
-    </ul>
+    <div className="flex w-full gap-2 p-1 text-sm">
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/settings">Settings</Link>
+    </div>
   );
 }
