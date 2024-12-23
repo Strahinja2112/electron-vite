@@ -53,7 +53,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["Geist", "sans-serif"],
+        sans: ["Outfit", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
