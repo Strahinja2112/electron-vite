@@ -2,6 +2,7 @@ import { app, BrowserWindow } from "electron";
 import registerListeners from "./helpers/ipc/listeners-register";
 // "electron-squirrel-startup" seems broken when packaging with vite
 //import started from "electron-squirrel-startup";
+import { shell } from "electron";
 import path from "path";
 
 const inDevelopment = process.env.NODE_ENV === "development";
@@ -18,12 +19,20 @@ function createWindow() {
       contextIsolation: true,
       nodeIntegration: true,
       nodeIntegrationInSubFrames: false,
-
       preload: preload,
     },
     titleBarStyle: "hidden",
     alwaysOnTop: inDevelopment,
+    backgroundColor: "#09090b",
   });
+
+  mainWindow.webContents.setWindowOpenHandler((details) => {
+    shell.openExternal(details.url);
+    return {
+      action: "deny",
+    };
+  });
+
   registerListeners(mainWindow);
 
   if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
@@ -31,6 +40,10 @@ function createWindow() {
   } else {
     mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
   }
+
+  // mainWindow.on("ready-to-show", () => {
+  //   mainWindow.show();
+  // });
 }
 
 app.whenReady().then(createWindow);
