@@ -1,5 +1,5 @@
+import ToggleTheme from "@/components/toggle-theme";
 import { render } from "@testing-library/react";
-import ToggleTheme from "@/components/ToggleTheme";
 import React from "react";
 
 test("renders ToggleTheme", () => {

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import ToggleTheme from "../components/ToggleTheme";
 import React from "react";
+import ToggleTheme from "../components/toggle-theme";
 
 const meta: Meta<typeof ToggleTheme> = {
   component: ToggleTheme,
